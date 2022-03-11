@@ -1,11 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-/**
- * @lesson-04-todo Exercise 1
- * Once we create our file to manage our projects, we'll need to import
- * it to make it available as data in our app.
- */
+import { initiateCheckout } from '../lib/payments.solution.js'
+
+import products from '../products.solution.json';
 
 export default function Home() {
   return (
@@ -24,40 +22,32 @@ export default function Home() {
           The best space jellyfish swag on the web!
         </p>
 
-        {/**
-          * @lesson-04-todo Exercise 4
-          * With our product data availabe to use in the form of an array, how can
-          * we take advantage of that to avoid having to manually manage each product
-          * in our code?
-          */}
-
         <ul className={styles.grid}>
-          <li className={styles.card}>
-            <a href="#">
-              <img src="/images/spacejelly-tshirt.jpg" alt="Space Jelly Tshirt" />
-              <h3>Space Jelly Tshirt</h3>
-              <p>₹20.00</p>
-              <p>Bring Cosmo the space Jellyfish to your wardrobe with this high quality tshirt.</p>
-            </a>
-          </li>
-
-          <li className={styles.card}>
-            <a href="#">
-              <img src="/images/spacejelly-stickers.jpg" alt="Space Jelly Stickers" />
-              <h3>Space Jelly Stickers</h3>
-              <p>₹10.00</p>
-              <p>Add some flare to your laptop with a sticker of Cosmo the Space Jellyfish.</p>
-            </a>
-          </li>
-
-          <li className={styles.card}>
-            <a href="#">
-              <img src="/images/spacejelly-combo.jpg" alt="Space Jelly Combo Pack" />
-              <h3>Space Jelly Combo</h3>
-              <p>₹20.00</p>
-              <p>Show your love for Cosmo with a tshirt and sticker combo pack!</p>
-            </a>
-          </li>
+          {products.map(product => {
+            const { id, title, image, description, price } = product;
+            return (
+              <li key={id} className={styles.card}>
+                <a href="#">
+                  <img src={image} alt={title} />
+                  <h3>{ title }</h3>
+                  <p>₹{ price }</p>
+                  <p>{ description }</p>
+                  <p>
+                    <button className={styles.button} onClick={() => {
+                      initiateCheckout({
+                        lineItems: [
+                          {
+                            price: id,
+                            quantity: 1
+                          }
+                        ]
+                      })
+                    }}>Buy</button>
+                  </p>
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </main>
 

@@ -103,6 +103,11 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
+"@stripe/stripe-js@^1.11.0":
+  version "1.24.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.24.0.tgz#d23977f364565981f8ab30b1b540e367f72abc5c"
+  integrity sha512-8CEILOpzoRhGwvgcf6y+BlPyEq1ZqxAv3gsX7LvokFYvbcyH72GRcHQMGXuZS3s7HqfYQuTSFrvZNL/qdkgA9Q==
+
 "@types/node@*":
   version "17.0.21"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.21.tgz#864b987c0c68d07b4345845c3e63b75edd143644"
