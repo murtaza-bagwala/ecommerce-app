@@ -12,17 +12,6 @@ exports.id = "pages/index";
 exports.ids = ["pages/index"];
 exports.modules = {
 
-/***/ "./lib/payments.solution.js":
-/*!**********************************!*\
-  !*** ./lib/payments.solution.js ***!
-  \**********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"initiateCheckout\": function() { return /* binding */ initiateCheckout; }\n/* harmony export */ });\n/* harmony import */ var _stripe_stripe_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stripe/stripe-js */ \"@stripe/stripe-js\");\n/* harmony import */ var _stripe_stripe_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_stripe_stripe_js__WEBPACK_IMPORTED_MODULE_0__);\n\nconst stripePromise = (0,_stripe_stripe_js__WEBPACK_IMPORTED_MODULE_0__.loadStripe)(\"pk_test_51Kc5RkSDq42j3RrTZwkUHSIXT2GtJQiXXmOYJW35D7iAaEYyoBv3sZH6BMap8mVFZjLanaoqyID8UZvMOwCTDC0K00i6L7aoDx\");\n/**\n * @lesson-08-solution Exercise 2\n * We can create and immediately export a new async function which will allow\n * us to perform our Stripe initiation from somewhere else in our app.\n */\n\nasync function initiateCheckout({\n  lineItems\n} = {}) {\n  /**\n   * @lesson-08-solution Exercise 5\n   * When we load Stripe from the library, we can make sure we first\n   * wait for it to load. Once loaded we can take advantage of the\n   * redirectToCheckout method which along with some required parameters\n   * will send our customer to a Stripe Checkout session.\n   */\n  const stripe = await stripePromise;\n  await stripe.redirectToCheckout({\n    mode: 'payment',\n    lineItems,\n    successUrl: `${window.location.origin}?session_id={CHECKOUT_SESSION_ID}`,\n    cancelUrl: window.location.origin\n  });\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9lY29tbWVyY2UtYXBwLy4vbGliL3BheW1lbnRzLnNvbHV0aW9uLmpzPzcyZjMiXSwibmFtZXMiOlsic3RyaXBlUHJvbWlzZSIsImxvYWRTdHJpcGUiLCJwcm9jZXNzIiwiaW5pdGlhdGVDaGVja291dCIsImxpbmVJdGVtcyIsInN0cmlwZSIsInJlZGlyZWN0VG9DaGVja291dCIsIm1vZGUiLCJzdWNjZXNzVXJsIiwid2luZG93IiwibG9jYXRpb24iLCJvcmlnaW4iLCJjYW5jZWxVcmwiXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBO0FBRUEsTUFBTUEsYUFBYSxHQUFHQyw2REFBVSxDQUFDQyw2R0FBRCxDQUFoQztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRU8sZUFBZUMsZ0JBQWYsQ0FBZ0M7QUFBRUM7QUFBRixJQUFnQixFQUFoRCxFQUFvRDtBQUN6RDtBQUNGO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVFLFFBQU1DLE1BQU0sR0FBRyxNQUFNTCxhQUFyQjtBQUVBLFFBQU1LLE1BQU0sQ0FBQ0Msa0JBQVAsQ0FBMEI7QUFDOUJDLFFBQUksRUFBRSxTQUR3QjtBQUU5QkgsYUFGOEI7QUFHOUJJLGNBQVUsRUFBRyxHQUFFQyxNQUFNLENBQUNDLFFBQVAsQ0FBZ0JDLE1BQU8sbUNBSFI7QUFJOUJDLGFBQVMsRUFBRUgsTUFBTSxDQUFDQyxRQUFQLENBQWdCQztBQUpHLEdBQTFCLENBQU47QUFNRCIsImZpbGUiOiIuL2xpYi9wYXltZW50cy5zb2x1dGlvbi5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGxvYWRTdHJpcGUgfSBmcm9tICdAc3RyaXBlL3N0cmlwZS1qcyc7XG5cbmNvbnN0IHN0cmlwZVByb21pc2UgPSBsb2FkU3RyaXBlKHByb2Nlc3MuZW52Lk5FWFRfUFVCTElDX1NUUklQRV9BUElfS0VZKTtcblxuLyoqXG4gKiBAbGVzc29uLTA4LXNvbHV0aW9uIEV4ZXJjaXNlIDJcbiAqIFdlIGNhbiBjcmVhdGUgYW5kIGltbWVkaWF0ZWx5IGV4cG9ydCBhIG5ldyBhc3luYyBmdW5jdGlvbiB3aGljaCB3aWxsIGFsbG93XG4gKiB1cyB0byBwZXJmb3JtIG91ciBTdHJpcGUgaW5pdGlhdGlvbiBmcm9tIHNvbWV3aGVyZSBlbHNlIGluIG91ciBhcHAuXG4gKi9cblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGluaXRpYXRlQ2hlY2tvdXQoeyBsaW5lSXRlbXMgfSA9IHt9KSB7XG4gIC8qKlxuICAgKiBAbGVzc29uLTA4LXNvbHV0aW9uIEV4ZXJjaXNlIDVcbiAgICogV2hlbiB3ZSBsb2FkIFN0cmlwZSBmcm9tIHRoZSBsaWJyYXJ5LCB3ZSBjYW4gbWFrZSBzdXJlIHdlIGZpcnN0XG4gICAqIHdhaXQgZm9yIGl0IHRvIGxvYWQuIE9uY2UgbG9hZGVkIHdlIGNhbiB0YWtlIGFkdmFudGFnZSBvZiB0aGVcbiAgICogcmVkaXJlY3RUb0NoZWNrb3V0IG1ldGhvZCB3aGljaCBhbG9uZyB3aXRoIHNvbWUgcmVxdWlyZWQgcGFyYW1ldGVyc1xuICAgKiB3aWxsIHNlbmQgb3VyIGN1c3RvbWVyIHRvIGEgU3RyaXBlIENoZWNrb3V0IHNlc3Npb24uXG4gICAqL1xuXG4gIGNvbnN0IHN0cmlwZSA9IGF3YWl0IHN0cmlwZVByb21pc2U7XG5cbiAgYXdhaXQgc3RyaXBlLnJlZGlyZWN0VG9DaGVja291dCh7XG4gICAgbW9kZTogJ3BheW1lbnQnLFxuICAgIGxpbmVJdGVtcyxcbiAgICBzdWNjZXNzVXJsOiBgJHt3aW5kb3cubG9jYXRpb24ub3JpZ2lufT9zZXNzaW9uX2lkPXtDSEVDS09VVF9TRVNTSU9OX0lEfWAsXG4gICAgY2FuY2VsVXJsOiB3aW5kb3cubG9jYXRpb24ub3JpZ2luLFxuICB9KTtcbn0iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./lib/payments.solution.js\n");
-
-/***/ }),
-
 /***/ "./pages/index.js":
 /*!************************!*\
   !*** ./pages/index.js ***!
@@ -138,7 +127,7 @@ module.exports = require("react/jsx-dev-runtime");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, ["vendors-node_modules_next_link_js","hooks_use-cart_js"], function() { return __webpack_exec__("./pages/index.js"); });
+var __webpack_exports__ = __webpack_require__.X(0, ["vendors-node_modules_next_link_js","hooks_use-cart_js","lib_payments_solution_js"], function() { return __webpack_exec__("./pages/index.js"); });
 module.exports = __webpack_exports__;
 
 })();
