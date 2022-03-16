@@ -18,4 +18,4 @@ create .env in your root folder and this key
 
 #### Currently this site is deployed on Vercel 🚀
 
-(https://ecommerce-app-ibfyyvils-murtaza-bagwala.vercel.app/)[https://ecommerce-app-ibfyyvils-murtaza-bagwala.vercel.app/]
+[https://ecommerce-app-ibfyyvils-murtaza-bagwala.vercel.app]
