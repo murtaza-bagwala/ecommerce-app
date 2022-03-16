@@ -6,7 +6,7 @@ import { useCart } from '../hooks/use-cart.js';
 
 import products from '../products.solution.json';
 
-import Table from '../components/Table';
+import Table from '../components/table';
 
 import { initiateCheckout } from '../lib/payments.solution.js'
 
