@@ -14,3 +14,8 @@ create .env in your root folder and this key
 `yarn install`
 
 `yarn dev`
+
+
+#### Currently this site is deployed here 🚀
+
+`https://ecommerce-app-ibfyyvils-murtaza-bagwala.vercel.app/`
